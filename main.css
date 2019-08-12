@@ -1,0 +1,49 @@
+html {
+    background-color: #f2f1ef;
+}
+
+body {
+    background-color: #f2f1ef ;
+    font-family: 'Special Elite', cursive ;
+}
+
+.coverWrapper {
+    height: 100%;
+    display: grid;
+}
+
+.cover {
+    margin: auto;
+    max-width: 80%;
+    min-width: 80%;
+}
+
+.cover h1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 0;
+}
+
+.cover h3 {
+    font-weight: bold;
+    font-size: 2.3rem;
+    margin: 0;
+}
+
+.cover span {
+    word-spacing: 0.5rem;
+}
+
+.cover img {
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.text {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: left;
+}
+
+
