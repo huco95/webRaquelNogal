@@ -16,6 +16,8 @@ body {
     margin: auto;
     max-width: 80%;
     min-width: 80%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .cover h1 {
