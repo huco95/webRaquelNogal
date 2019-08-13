@@ -161,7 +161,11 @@
     $(function() {
         $("body").fadeIn(1000);
 
-        $(window).scroll(function() {doScroll()});
+        /*Activate automatic scrolling only for desktop*/
+        if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $(window).scroll(function() {doScroll()});
+        }
+        
     });
 </script>
 
