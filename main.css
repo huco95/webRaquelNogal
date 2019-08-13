@@ -21,6 +21,7 @@ a:hover{
 .wrapper {
     min-height: 100%;
     display: grid;
+    position: relative;
 }
 
 .content {
@@ -99,9 +100,9 @@ a:hover{
 }
 
 footer {
-    height: 0.8rem;
-    width: 100%;
-    text-align: right;
+    position: absolute;
+    bottom: 0px;
+    right: 1rem;
     font-size: 0.8rem;
 }
 

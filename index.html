@@ -94,13 +94,74 @@
                 </ul>
             </div>
         </div>
+        <footer>
+                Made with 💛 by <a href="https://github.com/huco95/webRaquelNogal" target="_blank">huco</a>
+        </footer>
     </div>
 
-    <footer>Made with 💛 by <a href="https://github.com/huco95/webRaquelNogal" target="_blank">huco</a></footer>
-
 <script>
+
+    var lastScrollTop = 0;
+    var scrolling = false;
+    var currentPosition = "#cover";
+    var nextPosition = "#portfolio";
+
+    function doScroll(){
+        var nowScrollTop = $(this).scrollTop();
+        if(scrolling == false){
+            if (nowScrollTop > lastScrollTop){
+                if(currentPosition == nextPosition) {
+                    nextPosition = "";
+                } else {
+                    if(currentPosition == "#cover") {
+                        nextPosition = "#portfolio";
+                    } else if (currentPosition == "#portfolio") {
+                        nextPosition = "#contact";
+                    }
+                    console.log(currentPosition);
+                    console.log(nextPosition);
+                    scrolling = true;
+                    $('html, body').animate({
+                        scrollTop: $(nextPosition).offset().top
+                    }, 'slow', function () {
+                        if (scrolling) {
+                            currentPosition = nextPosition;
+                            scrolling = false;
+                        }
+                    });
+                }
+
+            } else {
+                if(currentPosition == nextPosition) {
+                    nextPosition = "";
+                } else {
+                    if(currentPosition == "#portfolio") {
+                        nextPosition = "#cover";
+                    } else if (currentPosition == "#contact") {
+                        nextPosition = "#portfolio";
+                    }
+                    console.log(currentPosition);
+                    console.log(nextPosition);
+                    scrolling = true; 
+                    $('html, body').animate({
+                        scrollTop: $(nextPosition).offset().top
+                    }, 'slow', function () {
+                        if (scrolling) {
+                            currentPosition = nextPosition;
+                            scrolling = false;
+                        }
+                    });
+                }
+
+            }
+        lastScrollTop = nowScrollTop;
+        }
+    }
+
     $(function() {
         $("body").fadeIn(1000);
+
+        $(window).scroll(function() {doScroll()});
     });
 </script>
 
