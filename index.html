@@ -11,6 +11,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./main.css" />
+    <!-- Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin="anonymous" />
+
 
     <!-- Title -->
     <title>Raquel Nogal</title>
@@ -19,7 +22,7 @@
 </head>
 
 <body style="display: none;">
-    <div class="wrapper">
+    <div class="wrapper" id="cover">
         <div class="content cover">
             <div class="row">
                 <div class="col-12 col-md-7 centered">
@@ -44,7 +47,7 @@
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" id="portfolio">
         <div class="content portfolio">
             <div class="title">
                 <h1>Experiencia</h1>
@@ -73,27 +76,21 @@
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" id="contact">
         <div class="content contact">
             <div class="title">
                     <h1>Contacto</h1>
             </div>
-            <ul>
-                <li>
-                    Correo
-                </li>
-
-                <li>
-                    Linkedin
-                </li>
-            </ul>
+            <div class="centered">
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:raquelnogal@raquelnogal.com">raquelnogal@raquelnogal.com</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <footer>
-        Made with 💛 by <a href="https://github.com/huco95/webRaquelNogal" target="_blank">huco</a>
-    </footer>
-
+    <footer>Made with 💛 by <a href="https://github.com/huco95/webRaquelNogal" target="_blank">huco</a></footer>
+    
 <script>
     $(function() {
         $("body").fadeIn(1000);
