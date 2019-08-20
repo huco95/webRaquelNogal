@@ -99,76 +99,123 @@
         </footer>
     </div>
 
+    <div id="up">
+        <i class="fa fa-chevron-up fa-lg"></i>
+    </div>
+
+    <div id="down">
+        <i class="fa fa-chevron-down fa-lg"></i>
+    </div>
+
 <script>
-
-    var lastScrollTop = pageYOffset;
     var scrolling = false;
-    var currentPosition = "#cover";
-    var nextPosition = "#portfolio";
+    var currentPos = "#cover"; 
+    var nextPos = "";
 
-    function doScroll(){
-        var nowScrollTop = $(this).scrollTop();
-        if(scrolling == false){
-            if (nowScrollTop > lastScrollTop){
-                if(currentPosition == nextPosition) {
-                    nextPosition = "";
-                } else {
-                    if(currentPosition == "#cover") {
-                        nextPosition = "#portfolio";
-                    } else if (currentPosition == "#portfolio") {
-                        nextPosition = "#contact";
-                    }
-                    console.log(currentPosition);
-                    console.log(nextPosition);
-                    scrolling = true;
-                    $('html, body').animate({
-                        scrollTop: $(nextPosition).offset().top
-                    }, 'slow', function () {
-                        if (scrolling) {
-                            currentPosition = nextPosition;
-                            scrolling = false;
-                        }
-                    });
-                }
-
-            } else {
-                if(currentPosition == nextPosition) {
-                    nextPosition = "";
-                } else {
-                    if(currentPosition == "#portfolio") {
-                        nextPosition = "#cover";
-                    } else if (currentPosition == "#contact") {
-                        nextPosition = "#portfolio";
-                    }
-                    console.log(currentPosition);
-                    console.log(nextPosition);
-                    scrolling = true; 
-                    $('html, body').animate({
-                        scrollTop: $(nextPosition).offset().top
-                    }, 'slow', function () {
-                        if (scrolling) {
-                            currentPosition = nextPosition;
-                            scrolling = false;
-                        }
-                    });
-                }
-
-            }
-        lastScrollTop = nowScrollTop;
+    function showButtons() {
+        switch(currentPos) {
+            case "#cover": 
+                $("#up").hide();
+                $("#down").slideDown('fast');
+                break;
+            case "#portfolio": 
+                $("#up").slideDown('fast');
+                $("#down").slideDown('fast');
+                break;
+            case "#contact": 
+                $("#up").slideDown('fast');
+                $("#down").hide();
+                break;
         }
     }
 
-    $(function() {
-        $("body").fadeIn(1000);
-        $('html, body').animate({
-            scrollTop: $("#cover").offset().top
-        }, 'slow');
+    function hideButtons() {
+        $("#up").hide();
+        $("#down").hide();
+    }
 
-        /*Activate automatic scrolling only for desktop*/
-        if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            $(window).scroll(function() {doScroll()});
+    function doScroll() {
+        $('html, body').animate({
+                scrollTop: $(nextPos).offset().top
+            }, 'slow', function() {
+                currentPos = nextPos;
+                scrolling = false;
+                showButtons();
+            });
+    }
+
+    function doScrollUp() {
+        hideButtons();
+        if(currentPos == "#portfolio") {
+            nextPos = "#cover";
+            scrolling = true;
         }
-        
+        if(currentPos == "#contact") {
+            nextPos = "#portfolio";
+            scrolling = true;
+        }
+        if(scrolling) {doScroll();} 
+    }
+
+    function doScrollDown() {
+        hideButtons();
+        if(currentPos == "#cover") {
+            nextPos = "#portfolio";
+            scrolling = true;
+        }
+        if(currentPos == "#portfolio") {
+            nextPos = "#contact";
+            scrolling = true;
+        }
+        if(scrolling) {doScroll();}
+    }
+
+    $(function() {
+
+        $("#up").hide();
+        $("#down").show();
+
+        $("body").fadeIn(1000);
+
+        /*Activate automatic scrolling only for biger screens*/
+        if( $( window ).width() > 767) {
+            $('body').css({"overflow":"hidden"});
+
+            $('body').bind('DOMMouseScroll mousewheel', function(e) {
+            if(!scrolling && e.originalEvent.wheelDelta > 0) {
+                doScrollUp();
+            }
+            else if(!scrolling) {
+                doScrollDown();
+            }
+            });
+
+            $(document).keydown(function(e) {
+                switch(e.which) {
+                    case 38: // up
+                        if(!scrolling) { doScrollUp(); }
+                        break;
+
+                    case 40: // down
+                        if(!scrolling){ doScrollDown(); }
+                        break;
+
+                    default: return; // exit this handler for other keys
+                }
+                e.preventDefault();
+            });
+        } else {
+            $('body').css({"overflow":"auto"});
+        }
+
+        $("#up").click(function() {
+            doScrollUp();
+        });
+
+        $("#down").click(function() {
+            doScrollDown();
+        });
+
     });
 </script>
 
