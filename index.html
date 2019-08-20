@@ -112,6 +112,9 @@
     var currentPos = "#cover"; 
     var nextPos = "";
 
+    /*
+     * Show controll buttons
+     */
     function showButtons() {
         switch(currentPos) {
             case "#cover": 
@@ -129,11 +132,17 @@
         }
     }
 
+    /*
+     * Hide control buttons
+     */
     function hideButtons() {
         $("#up").hide();
         $("#down").hide();
     }
 
+    /*
+     * Scroll to nextPos
+     */
     function doScroll() {
         $('html, body').animate({
                 scrollTop: $(nextPos).offset().top
@@ -144,6 +153,9 @@
             });
     }
 
+    /*
+     * Scroll up action
+     */
     function doScrollUp() {
         hideButtons();
         if(currentPos == "#portfolio") {
@@ -157,6 +169,9 @@
         if(scrolling) {doScroll();} 
     }
 
+    /*
+     * Scroll down action
+     */
     function doScrollDown() {
         hideButtons();
         if(currentPos == "#cover") {
@@ -170,52 +185,74 @@
         if(scrolling) {doScroll();}
     }
 
-    $(function() {
-
+    /*
+     * Initialize desktop
+     */
+    function initalizeDesktop() {
         $("#up").hide();
         $("#down").show();
 
-        $("body").fadeIn(1000);
+        $('body').css({"overflow":"hidden"});
 
-        /*Activate automatic scrolling only for biger screens*/
-        if( $( window ).width() > 767) {
-            $('body').css({"overflow":"hidden"});
-
-            $('body').bind('DOMMouseScroll mousewheel', function(e) {
-            if(!scrolling && e.originalEvent.wheelDelta > 0) {
-                doScrollUp();
-            }
-            else if(!scrolling) {
-                doScrollDown();
-            }
-            });
-
-            $(document).keydown(function(e) {
-                switch(e.which) {
-                    case 38: // up
-                        if(!scrolling) { doScrollUp(); }
-                        break;
-
-                    case 40: // down
-                        if(!scrolling){ doScrollDown(); }
-                        break;
-
-                    default: return; // exit this handler for other keys
-                }
-                e.preventDefault();
-            });
-        } else {
-            $('body').css({"overflow":"auto"});
-        }
-
-        $("#up").click(function() {
+        $('body').bind('DOMMouseScroll mousewheel', function(e) {
+        if(!scrolling && e.originalEvent.wheelDelta > 0) {
             doScrollUp();
-        });
-
-        $("#down").click(function() {
+        }
+        else if(!scrolling) {
             doScrollDown();
+        }
         });
 
+        $(document).keydown(function(e) {
+            switch(e.which) {
+                case 38: // up
+                    if(!scrolling) { doScrollUp(); }
+                    break;
+
+                case 40: // down
+                    if(!scrolling){ doScrollDown(); }
+                    break;
+
+                default: return; // exit this handler for other keys
+            }
+            e.preventDefault();
+        });
+
+        $('#up').click(function() { doScrollUp(); });
+        $('#down').click(function() { doScrollDown(); });
+    }
+
+    /*
+     * Initialize mobile
+     */
+    function initializeMobile() {
+        $('body').css({'overflow':'auto'});
+        hideButtons();
+    }
+
+    /*
+     * On resize initialize mobile or desktop
+     */
+    $( window ).resize(function() {
+        if( $( window ).width() > 767) {
+            initalizeDesktop(); 
+        }
+        else {
+            $('body').unbind('DOMMouseScroll mousewheel');
+            $(document).unbind('keydown');
+            initializeMobile(); 
+        }
+    });
+
+    /*
+     * On page load
+     */
+    $(function() {
+        /*Activate automatic scrolling only for bigger screens*/
+        if( $( window ).width() > 767) { initalizeDesktop(); }
+        else { initializeMobile(); }
+
+        $('body').fadeIn(1000);
     });
 </script>
 

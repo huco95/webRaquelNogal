@@ -24,6 +24,14 @@ a:hover{
     position: relative;
 }
 
+@media (max-width: 767px) {
+    .wrapper {
+        min-height: 0px;
+        display: grid;
+        position: relative;
+    }
+}
+
 .content {
     margin: auto;
     max-width: 80%;
