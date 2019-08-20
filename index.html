@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
     <!-- JQuery-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Jquery touchswipe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js" integrity="sha256-ns1OeEP3SedE9Theqmu444I44sikbp1O+bF/6BNUUy0=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -22,7 +24,7 @@
     <link rel="icon" type="image/ico" href="favicon.ico">
 </head>
 
-<body style="display: none;">
+<body style="visibility: hidden;">
     <div class="wrapper" id="cover">
         <div class="content cover">
             <div class="row">
@@ -100,11 +102,11 @@
     </div>
 
     <div id="up">
-        <i class="fa fa-chevron-up fa-lg"></i>
+        <i class="fa fa-chevron-up fa-lg" title="Subir"></i>
     </div>
 
     <div id="down">
-        <i class="fa fa-chevron-down fa-lg"></i>
+        <i class="fa fa-chevron-down fa-lg" title="Bajar"></i>
     </div>
 
 <script>
@@ -218,8 +220,18 @@
             e.preventDefault();
         });
 
-        $('#up').click(function() { doScrollUp(); });
-        $('#down').click(function() { doScrollDown(); });
+        $('#up i').click(function() { doScrollUp(); });
+        $('#down i').click(function() { doScrollDown(); });
+
+        $("body").swipe( {
+            //Generic swipe handler for all directions
+            swipeDown:function(event, direction, distance, duration, fingerCount, fingerData) {
+                doScrollUp(); 
+            },
+            swipeUp:function(event, direction, distance, duration, fingerCount, fingerData) {
+                doScrollDown(); 
+            }
+        });
     }
 
     /*
@@ -234,7 +246,8 @@
      * On resize initialize mobile or desktop
      */
     $( window ).resize(function() {
-        if( $( window ).width() > 767) {
+        /*Activate automatic scrolling only if content fits the screen*/
+        if($(window).height() >= Math.floor($("#cover").height())) {
             initalizeDesktop(); 
         }
         else {
@@ -247,12 +260,13 @@
     /*
      * On page load
      */
-    $(function() {
-        /*Activate automatic scrolling only for bigger screens*/
-        if( $( window ).width() > 767) { initalizeDesktop(); }
+    $(function() {        
+        /*Activate automatic scrolling only if content fits the screen*/
+        if($(window).height() >= Math.floor($("#cover").height())) { initalizeDesktop(); }
         else { initializeMobile(); }
 
-        $('body').fadeIn(1000);
+        $("body").css("visibility", "visible");
+
     });
 </script>
 

@@ -126,29 +126,34 @@ footer a:hover{
 #up {
     position: fixed;
     top: 0px;
+    height: 2rem;
     width: 100%;
-    height: 1.3rem;
     font-size: 1.3rem;
     text-align: center;
+}
+
+#up i {
     cursor: pointer;
 }
 
-#up:hover {
-    height: 2rem;
-    font-size: 2rem;
+#up i:hover {
+    font-size: 2.5rem;
 }
 
 #down {
     position: fixed;
     bottom: 0px;
+    height: 2rem;
     width: 100%;
-    height: 1.3rem;
     font-size: 1.3rem;
     text-align: center;
-    cursor: pointer;
 }
 
-#down:hover {
-    height: 2rem;
-    font-size: 2rem;
+#down i {
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+#down i:hover {
+    font-size: 2.5rem;
 }
