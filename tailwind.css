@@ -2,101 +2,70 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: Kalam;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('fonts/Kalam-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Kalam;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('fonts/Kalam-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: Kalam;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('fonts/Kalam-Light.woff2') format('woff2');
+}
+
 /* latin */
 @font-face {
-    font-family: 'FiraGo';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src:
-      url('fonts/FiraGO-SemiBold.latin.woff2') format('woff2');
-    unicode-range: U+0000-007F, U+0080-00FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'FiraGo';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src:
-      url('fonts/FiraGO-Bold.latin.woff2') format('woff2');
-    unicode-range: U+0000-007F, U+0080-00FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'FiraGo';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src:
-      url('fonts/FiraGO-Book.latin.woff2') format('woff2');
-    unicode-range: U+0000-007F, U+0080-00FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'FiraGo';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src:
-      url('fonts/FiraGO-Medium.latin.woff2') format('woff2');
-    unicode-range: U+0000-007F, U+0080-00FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'FiraGo';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src:
-      url('fonts/FiraGO-Regular.latin.woff2') format('woff2');
-    unicode-range: U+0000-007F, U+0080-00FF;
-  }
-
-h1 {
-    @apply text-6xl font-bold leading-tight;
+  font-family: 'FiraGo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('fonts/FiraGO-SemiBold.latin.woff2') format('woff2');
 }
-
-h3 {
-    @apply text-4xl font-medium leading-tight;
+/* latin */
+@font-face {
+  font-family: 'FiraGo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('fonts/FiraGO-Bold.latin.woff2') format('woff2');
 }
-
-h5 {
-    @apply text-xl font-bold leading-tight;
+/* latin */
+@font-face {
+  font-family: 'FiraGo';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('fonts/FiraGO-Book.latin.woff2') format('woff2');
 }
-
-.w-spacing-0 {
-    word-spacing: 0.5em;
+/* latin */
+@font-face {
+  font-family: 'FiraGo';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('fonts/FiraGO-Medium.latin.woff2') format('woff2');
 }
-
-.fit-content {
-    min-width: fit-content;
-}
-
-.basis-15 {
-  flex-basis: 15rem;
-}
-
-.basis-20 {
-    flex-basis: 20rem;
-}
-
-.btn {
-    @apply font-medium py-2 px-4 rounded-md bg-btn text-btn-text outline-none transition duration-200;
-}
-
-.btn:focus {
-    @apply outline-none;
-}
-
-.btn:hover {
-    @apply bg-btn-hover;
-}
-
-.bg-modal {
-    background: #00000090;
-}
-
-svg {
-    @apply inline;
+/* latin */
+@font-face {
+  font-family: 'FiraGo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('fonts/FiraGO-Regular.latin.woff2') format('woff2');
 }

@@ -5,11 +5,15 @@ const lightTheme = new Theme()
     .name('light')
     .assignable()
     .colors({
-          "background": "#ECE2D0",
-          "text": "#1E1A1D",
+          "background": "#ffffff",
+          "text": "#1a202c",
+          
           "link": "#000000",
-          "link-hover": "#2C5282",
-          "card": "#ffffff",
+          "link-accent": "#000000",
+          "link-hover": "#4a5568",
+          "link-hover-accent": "#ffffff",
+
+          "card": "#f0f0f0",
           "btn": "#c0c0c0",
           "btn-hover": "#a0a0a0",
           "btn-text": "#000000"

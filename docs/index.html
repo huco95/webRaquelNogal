@@ -6,30 +6,31 @@
     <meta name="description" content="Raquel Nogal CV">
     <meta name="keywords" content="resume,cv,portfolio,Raquel Nogal">
     <meta name="author" content="Félix Nogal">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="build.css" />
     <link rel="icon" type="image/ico" href="imgs/favicon.ico">
     <title>Raquel Nogal</title>
 
 </head>
 
-<body class="bg-background font-special-elite text-text">
+<body class="bg-background font-special-elite text-text min-h-screen flex justify-center items-center">
 
-    <!-- Intro -->
-    <div class="grid m-auto md:min-h-screen lg:max-w-screen-xl">
-        <div class="flex my-8 md:m-auto md:mx-8">
-            <div class="md:w-3/5 md:m-auto md:mr-8">
-                <div class="flex mb-5 md:m-auto">
-                    <div class="flex basis-15 mx-4 items-center md:hidden">
-                        <img src="imgs/raquel.jpg" class="rounded-lg shadow-image" alt="Raquel Nogal">
-                    </div>
-                    <div class="m-auto ml-2 mb-0 md:ml-0 md:mb-4">
-                        <h1 class="text-5xl md:text-6xl tracking-wide mb-2 md:mb-0">Raquel Nogal</h1>
-                        <h3 class="text-3xl md:text-4xl tracking-wide">Periodista</h3>
-                    </div>
+    <div class="max-w-screen-lg my-4">
+        <h1 class="font-kalam text-5xl md:text-6xl font-bold leading-tight text-center mb-2">RAQUEL NOGAL</h1>
+
+        <nav class="flex items-center justify-center">
+            <a href="/publications.html" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">Publicaciones</a>
+            <a href="/cv/CV-Europass-RaquelNogal-EN.pdf" target="_blank" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">CV</a>
+        </nav>
+
+        <div class="px-4">
+            <div class="flex flex-wrap items-center -mx-4 my-8">
+                <div class="w-full md:w-2/6 px-4">
+                    <img src="imgs/raquel.jpg" class="object-cover h-56 md:h-auto w-full rounded-lg shadow-image" alt="Raquel Nogal">
                 </div>
-                <div class="">
-                    <p class="text-md mx-4 text-justify w-spacing-0 md:mx-0 md:text-lg">
+
+                <div class="w-full md:w-4/6 mt-4 md:m-auto px-4">
+                    <p class="text-lg text-justify leading-relaxed">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -37,104 +38,23 @@
                         unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
-                    <div class="text-center mt-8">
-                        <a href="#portfolio"><button class="btn mx-4" id="btnPortfolio">Ver Portfolio</button></a>
-                        <button type="submit" class="btn mx-4" id="btnCV" onclick="window.open('/cv/CV-Europass-RaquelNogal-EN.pdf')">Descargar CV</button>
-                    </div>
-                </div>
-            </div>
-            <div class="m-4 w-auto hidden md:block md:m-auto md:w-2/5">
-                <img src="imgs/raquel.jpg" class="max-h-70vh rounded-lg shadow-image md:max-h-none" alt="Raquel Nogal">
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio -->
-    <div id="portfolio" class="grid m-auto md:min-h-screen lg:max-w-screen-xl">
-        <div class="my-12 md:m-auto">
-            <h1 class="mb-2 mx-4 text-center tracking-wide">Portfolio</h1>
-
-            <div class="flex flex-wrap flex-row justify-around">
-                <div class="bg-card basis-20 p-4 m-4 rounded-md shadow-card">
-                    <img src="imgs/diarioDeBurgos.jpg" class="h-48 m-auto mb-4 rounded-full" alt="Diario de Burgos">
-
-                    <h5 class=""><a href="https://www.diariodeburgos.es/" target="_blank"># Diario De Burgos</a></h5>
-
-                    <p class="my-2 text-justify">
-                        With supporting text below as a natural lead-in to additional content.
-                    </p>
-
-                    <div class="text-center mt-2">
-                        <a href="portfolio/diarioDeBurgos.html"><button class="btn" id="btnDiario">Ver Artículos</button></a>
-                    </div>
-                </div>
-
-                <div class="bg-card basis-20 p-4 m-4 rounded-md shadow-card">
-                    <img src="imgs/theMusicOfTheWeek.jpg" class="h-48 m-auto mb-4 rounded-full" alt="The Music Of The Week">
-
-                    <h5 class=""><a href="https://themusicoftheweek.com/"  target="_blank"># The Music Of The Week</a></h5>
-                    
-                    <p class="my-2 text-justify">
-                        With supporting text below as a natural lead-in to additional content.
-                    </p>
-
-                    <div class="text-center mt-2">
-                        <button class="btn" id="btnMusic">Ver Artículos</button>
-                    </div>
-                </div>
-
-                <div class="bg-card basis-20 p-4 m-4 rounded-md shadow-card">
-                    <img src="imgs/moobys.jpg" class="h-48 m-auto mb-4 rounded-full" alt="The Music Of The Week">
-
-                    <h5 class=""><a href="https://moobys.es/"  target="_blank"># Moobys</a></h5>
-                    
-                    <p class="my-2 text-justify">
-                        With supporting text below as a natural lead-in to additional content.
-                    </p>
-
-                    <div class="text-center mt-2">
-                        <button class="btn" id="btnMoobys">Ver Artículos</button>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Contact -->
-    <div id="contacto" class="grid m-auto lg:max-w-screen-xl">
-        <div class="mb-32 mt-20 text-center">
-            <h1 class="mb-2 mx-2 tracking-wide">Contacto</h1>
-            <ul>
-                <li>
-                    <a class="group flex inline-flex items-center text-link hover:text-link-hover" href="mailto:raquel_nogal@hotmail.com">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span class="ml-2">raquel_nogal@hotmail.com</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="flex flex-wrap items-center justify-center">
+            <div>
+                <a href="https://twitter.com/raqns" target="_blank" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">Twitter</a>
+                <a href="https://www.linkedin.com/in/raquel-nogal-63bbbb193/" target="_blank" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">LinkedIn</a>
+            </div>
+            <span>||</span>
+            <div>
+                <a href="mailto:mailto:rnogalsantamaria@gmail.com" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">Correo</a>
+                <a href="tel:+34 692 060 857" class="rounded px-4 hover:bg-link-hover hover:text-link-hover-accent">Teléfono</a>
+            </div>
         </div>
     </div>
-
-    <footer class="float-right mr-5 mb-2">
-        <a href="https://github.com/huco95" target="_blank">Made with 💛 by huco</a>
-    </footer>
     
 </body>
-
-<script type="text/javascript">
-    function initialize() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-    
-    document.addEventListener("DOMContentLoaded", initialize, false);
-  </script>
 </html>
 

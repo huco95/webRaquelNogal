@@ -1,8 +1,12 @@
 module.exports = {
+  purge: [
+    "./*.html",
+  ],
   theme: {
     extend: {
       fontFamily: {
         "special-elite": ['FiraGo', 'cursive'],
+        "kalam": ['Kalam', 'cursive']
       },
       boxShadow: {
         'image': '0px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)',
@@ -21,8 +25,9 @@ module.exports = {
       },
     },
   },
-
   plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
     require('./theme.config.js'),
   ]
 };

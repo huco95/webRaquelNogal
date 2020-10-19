@@ -4,19 +4,16 @@
   "description": "",
   "author": "Felix",
   "scripts": {
-    "serve": "concurrently \"postcss ./tailwind.css -o docs/build.css --watch\"  \"live-server ./docs \"",
-    "build": "cross-env NODE_ENV=build postcss ./tailwind.css -o docs/build.css"
+    "serve": "concurrently \"npx tailwindcss build tailwind.css -o ./docs/build.css .c ./tailwind.config.js\"  \"live-server ./docs \"",
+    "build-dev": "cross-env NODE_ENV=development npx tailwindcss build ./tailwind.css -o ./docs/build.css .c ./tailwind.config.js",
+    "build-pro": "cross-env NODE_ENV=production npx tailwindcss build ./tailwind.css -o ./docs/build.css .c ./tailwind.config.js"
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.6",
-    "autoprefixer": "^9.7.4",
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.0",
     "cssnano": "^4.1.10",
     "live-server": "^1.2.1",
-    "postcss-cli": "^7.0.0",
-    "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.2.0",
+    "tailwindcss": "^1.7.6",
     "tailwindcss-theming": "^2.4.3"
   }
 }
